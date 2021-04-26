@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Result Page</title>
+    <script src="scripts/webgazer.js" type="text/javascript"></script>
+    <script src="scripts/index.js"></script>
+    <script src="scripts/AOI_Positions.js"></script>
+    
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body onLoad="getAOI()">
+    <div class="searchResult">
+        <h6>Description: Details about coffee</h6>
+        <h6>Query: Coffee</h6>
+
+        <img src="images/coffee1.JPG" id="c1" style="border: 3px solid red"></img>
+        <br>
+        <div class="btn-group">
+            <button type="button" class="btn btn-default btn-success"></button>
+            <button type="button" class="btn btn-defualt btn-danger"></button>
+        </div>
+
+        <br>
+        <img src="images/coffee2.JPG" id="c2" style="border: 3px solid red"></img>
+        <br>
+        <div class="btn-group">
+            <button type="button" class="btn btn-default btn-success"></button>
+            <button type="button" class="btn btn-defualt btn-danger"></button>
+        </div>
+
+        <br>
+        <img src="images/coffee3.JPG" id="c3" style="border: 3px solid red"></img>
+        <br>
+        <div class="btn-group">
+            <button type="button" class="btn btn-default btn-success"></button>
+            <button type="button" class="btn btn-defualt btn-danger"></button>
+        </div>
+
+        <br>
+        <img src="images/coffee4.JPG" id="c4" style="border: 3px solid red"></img>
+        <br>
+        <div class="btn-group">
+            <button type="button" class="btn btn-default btn-success"></button>
+            <button type="button" class="btn btn-defualt btn-danger"></button>
+        </div>
+
+        <br>
+        <img src="images/coffee5.JPG" id="c5" style="border: 3px solid red"></img>
+        <br>
+        <div class="btn-group">
+            <button type="button" class="btn btn-default btn-success"></button>
+            <button type="button" class="btn btn-defualt btn-danger"></button>
+        </div>
+
+        <br>
+        <img src="images/coffee6.JPG" id="c6" style="border: 3px solid red"></img>
+        <br>
+        <div class="btn-group">
+            <button type="button" class="btn btn-default btn-success"></button>
+            <button type="button" class="btn btn-defualt btn-danger"></button>
+        </div>
+        <br>
+        <button type="button">Next</button>
+        <button type="button" id="downloadCsv" onclick="downloadCsv()">Download CSV</button>
+        <button type="button" id="downloadAoiCsv" onClick="downloadAoiCsv()">Download AOI CSV</button>
+
+    </div>
+
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</html>

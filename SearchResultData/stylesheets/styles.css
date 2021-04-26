@@ -1,0 +1,13 @@
+.searchResult {
+    max-width: 700px;
+    margin: auto;
+}
+
+.btn-group button {
+    cursor: pointer;
+    display: inline-block;
+}
+
+img {
+    width: 100%;
+}
