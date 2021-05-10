@@ -33,9 +33,6 @@ def get_AOI_Info(input_gazePoint_file, input_aoiPositions_file):
     for bot in df2['1']:
         botPositionsList.append(bot)
 
-    # stores all the webgazer coordinates into x, y format
-    allCoordinatesList = list(zip(xCoordinatesList, yCoordinatesList))
-
     # lists for holding coordinates in x, y format for each AOI
     aoi1Coordinates = []
     aoi2Coordinates = []
