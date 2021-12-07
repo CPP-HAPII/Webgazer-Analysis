@@ -1,0 +1,71 @@
+<!doctype html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>SQL INSERT Statement Creator</title>
+	</head>
+
+	<body>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				$("button").click(function(){
+					var inputVal = document.getElementById("inputQuery").value;
+					var sqlStatement = "INSERT INTO `Results` VALUES (";
+					var ID = document.getElementById("universalID").value;
+					var qID = document.getElementById("queryID").value;
+					var lang = document.getElementById("lang").value;
+
+					if(inputVal === ""){
+						inputVal = "worlds largest hamburger"
+					}
+					console.log(inputVal);
+					var settings = {
+					  "url": "https://api.bing.microsoft.com/v7.0/search?q="+inputVal+"&count=30"+"&setLang="+lang,
+					  "method": "GET",
+					  "timeout": 0,
+					  "headers": {
+						"Ocp-Apim-Subscription-Key": "68b83e74bbac4643a7299411e9ba88d2"
+					  },
+					};
+
+					if(lang === "en-US"){lang = "English";}
+					else if(lang === "zh-CN"){lang = "Chinese"}
+					else{lang = "Spanish"}
+
+					$.ajax(settings).done(function (response) {
+					  
+					  for(i = 0; i < response.webPages.value.length; i++){
+						sqlStatement += ID++;
+						sqlStatement += ","+qID+","+i+",";
+						sqlStatement += "'"+response.webPages.value[i].url+"',";
+						sqlStatement += "'"+response.webPages.value[i].name.replace(/'/gi, "''")+"',";
+						sqlStatement += "'"+response.webPages.value[i].snippet.replace(/'/gi, "''")+"','"+lang+"'),("
+					  }
+					  document.getElementById("statement").innerHTML = sqlStatement;
+					});
+				});
+			});
+		</script>
+		<p>Create SQL INSERT Statement from Bing Web Search API JSON Response Object</p>
+		
+		<label for="inputQuery">Query: </label>
+		<input type = "text" id = "inputQuery">
+		
+		<label for="queryID">Query ID: </label>
+		<input type = "text" id = "queryID">
+		
+		<label for="universalID">Global ID Start Index: </label>
+		<input type = "text" id = "universalID">
+		
+		<label for="lang">Language: </label>
+		<input type = "text" id = "lang">
+		
+		<button>Submit Query</button><br>
+		
+		<p>English: en-US | Chinese: zh-CN | Spanish: es-MX</p>
+		
+		<p id="statement"></p>
+	</body>
+</html>
