@@ -11,4 +11,9 @@ npm install
 
 from inside the client and server folder.
 
-commit triggerbuild
+Run the following commands:
+
+npm run build
+npm run dev
+```
+
